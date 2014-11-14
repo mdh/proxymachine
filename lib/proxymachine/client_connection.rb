@@ -23,6 +23,8 @@ class ProxyMachine
       begin
         port, ip = Socket.unpack_sockaddr_in(get_peername)
         "#{ip}:#{port}"
+      rescue ArgumentError
+        'unix socket'
       end
     end
 
